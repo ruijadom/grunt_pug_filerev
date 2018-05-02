@@ -10,10 +10,25 @@ module.exports = function (grunt) {
         }
       }
     },
+    concat: {
+      lib: {
+        src: 'lib/jquery/dist/jquery.js',
+        dest: 'dist/js/vendor.js'
+      },
+      js: {
+        src: 'public/js/*.js',
+        dest: 'dist/js/scripts.js'
+      },
+      css: {
+        src: 'public/css/*.css',
+        dest: 'dist/css/style.css'
+      }
+    },
     pugUsemin: {
       scripts: {
         options: {
           tasks: {
+            lib: ['concat', 'uglify', 'filerev'],
             js: ['concat', 'uglify', 'filerev'],
             css: ['concat', 'cssmin', 'filerev']
           },
@@ -37,6 +52,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean',
+    'concat',
     'pugUsemin'
   ]);
 }

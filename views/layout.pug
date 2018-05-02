@@ -9,8 +9,12 @@ html
     //-<!-- endbuild -->
   body
     block content
+    //-<!-- build:js dist/js/vendor.js -->
+    script(src='./lib/jquery/dist/jquery.js')
+    //-<!-- endbuild -->
     //-<!-- build:js dist/js/scripts.js -->
     script(src='./public/js/script1.js')
     script(src='./public/js/script2.js')
     script(src='./public/js/script2.js')
     //-<!-- endbuild -->
+
